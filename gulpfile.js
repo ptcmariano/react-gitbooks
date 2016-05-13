@@ -12,7 +12,7 @@ gulp.task('webpack', function() {
 // Web Server
 gulp.task('serve:web', serve({
   root: ['.'],
-  port: 8000
+  port: process.env.PORT
 }));
 
 // Watch

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router';
-import AsideContainer from 'ui/aside-container';
 
 export default React.createClass({
     render: function() {
@@ -10,7 +9,6 @@ export default React.createClass({
                     <Link to="/">Home</Link><br />
                     <Link to="/books">books</Link>
                 </nav>
-                <AsideContainer />
                 <main>
                     {this.props.children}
                 </main>
