@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>React Presentation</title>
+    <title>React GitBook</title>
     <style>
         aside {
             width: 600px;
@@ -10,12 +10,52 @@
             background-color: #aaa;
             font-size: 2em;
         }
+        /* animacao */
+        #wait nav {
+            width: 20px;
+            height: 5px;
+            background-color: red;
+            -webkit-animation-name: animeload;
+            -webkit-animation-duration: 4s;
+            animation-name: animeload;
+            animation-duration: 4s;
+        }
+        @-webkit-keyframes animeload {
+            from {width: 20px;}
+            to {width: 100%;}
+        }
+        @keyframes animeload {
+            from {width: 20px;}
+            to {width: 100%;}
+        }
     </style>
 </head>
 <body>
-    
+    <div id="wait"><nav></nav><p>carregando</p></div>
     <div id="root"></div>
-    <script src="bundle.js"></script>
+    <script>
+        var JavaScript = {
+          load: function(src, callback) {
+            var script = document.createElement('script'),
+                loaded;
+            script.setAttribute('src', src);
+            if (callback) {
+              script.onreadystatechange = script.onload = function() {
+                if (!loaded) {
+                  callback();
+                }
+                loaded = true;
+              };
+            }
+            document.getElementsByTagName('body')[0].appendChild(script);
+          }
+        };
+
+        JavaScript.load("/bundle.js", function() {
+          //clearLoad
+          document.getElementById('wait').remove();
+        });
+    </script>
 
 </body>
 </html>
