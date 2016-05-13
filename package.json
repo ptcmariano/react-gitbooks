@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node node_modules/webpack/bin/webpack.js",
     "watch": "node node_modules/webpack/bin/webpack.js --watch",
+    "compress": "node node_modules/uglify-js/bin/uglifyjs bundle.js -c hoist_vars=true -o comp.js",
     "start": "node node_modules/gulp/bin/gulp.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -24,6 +25,7 @@
     "babel-core": "^6.3.13",
     "babel-loader": "^6.2.0",
     "babel-preset-airbnb": "^1.0.1",
+    "uglify-js": "^2.6.2",
     "chai": "^3.5.0",
     "enzyme": "^2.0.0",
     "jsdom": "^8.0.1",
